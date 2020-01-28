@@ -1,0 +1,7 @@
+#item-list {
+    display: grid;
+    grid-template-columns:[incomplete-start] 1fr [incomplete-end] 0 [complete-start] 1fr [complete-end];
+    grid-auto-flow: column;
+    padding: 0;
+    box-sizing: border-box;
+}
