@@ -16,13 +16,12 @@ class List extends React.Component {
             <div id="item-list">
                 {items.map(i => (
                     <Item
-                        key={i.id}
+                        key={"item" + i.id}
                         id={i.id}
                         date={i.date}
                         text={i.text}
                         completed={i.completed}
-                        handleDelete={e => this.props.handleDelete(e)}
-                        handleStatus={e => this.props.handleStatus(e)}
+                        handleItem={(h, e) => this.props.handleItem(h, e)}
                     />
                 ))}
             </div>

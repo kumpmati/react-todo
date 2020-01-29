@@ -6,26 +6,47 @@ import Adder from "./Adder";
 class App extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { items: [], counter: 0 };
+
+        this.state = {
+            items: [],
+            counter: 0
+        };
     }
 
     render() {
         return (
             <div id="wrapper">
-                <Adder onClick={e => this.addItem(e)} />
+                <Adder onClick={text => this.addItem(text)} />
                 <List
                     itemList={this.state.items}
-                    handleDelete={e => this.deleteItem(e)}
-                    handleStatus={e => this.changeItem(e)}
+                    handleItem={(action, item) =>
+                        this.itemHandler(action, item)
+                    }
                 />
             </div>
         );
     }
 
-    addItem(item) {
+    itemHandler(action, item) {
+        switch (action) {
+            case "add":
+                this.addItem(item);
+                break;
+            case "update":
+                this.updateItem(item);
+                break;
+            case "delete":
+                this.deleteItem(item);
+                break;
+            default:
+                console.log("error");
+        }
+    }
+
+    addItem(text) {
         const newItem = {
             id: this.state.counter,
-            text: item,
+            text: text,
             date: new Date().toLocaleString(),
             completed: false
         };
@@ -34,29 +55,29 @@ class App extends React.Component {
         this.setState({ items: newArr, counter: this.state.counter + 1 });
     }
 
-    deleteItem(itemToDelete) {
-        const obj = this.findItemId(itemToDelete);
+    deleteItem(item) {
+        const obj = this.findItemId(item);
         if (obj.i > -1) {
             obj.arr.splice(obj.i, 1);
             this.setState({ items: obj.arr });
         }
     }
 
-    changeItem(itemToChange) {
-        const obj = this.findItemId(itemToChange);
+    updateItem(item) {
+        const obj = this.findItemId(item);
         if (obj.i > -1) {
             obj.arr[obj.i].completed = !obj.arr[obj.i].completed;
             this.setState({ items: obj.arr });
         }
     }
 
-    findItemId(item) {
-        const newArr = this.state.items.slice();
+    findItemId = item => {
+        const arr = this.state.items.slice();
         return {
-            i: newArr.findIndex(element => element.id === item.id),
-            arr: newArr
+            i: arr.findIndex(element => element.id === item.id),
+            arr: arr
         };
-    }
+    };
 }
 
 export default App;

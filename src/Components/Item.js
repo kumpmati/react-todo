@@ -12,11 +12,17 @@ class Item extends React.Component {
                 <h4 className="item-text">{this.props.text}</h4>
                 <p className="item-date">{this.props.date}</p>
 
-                <button onClick={() => this.props.handleStatus(this.props)}>
+                <button
+                    className=""
+                    onClick={() => this.props.handleItem("update", this.props)}
+                >
                     {this.props.completed ? "TODO" : "Mark as Done"}
                 </button>
 
-                <button onClick={() => this.props.handleDelete(this.props)}>
+                <button
+                    className=""
+                    onClick={() => this.props.handleItem("delete", this.props)}
+                >
                     X
                 </button>
             </li>
