@@ -1,61 +1,12 @@
 .item {
+    display: block;
     display: grid;
-    grid-template-columns: 5fr 2fr 1fr;
-    border-radius: 0.2em;
-    background-color: #292929;
+    grid-template-columns: 5fr 100px 40px;
     line-height: 1;
-    list-style: none;
-    font-size: 1em;
-    width: 100%;
-    margin-top: 0.2em;
-    padding: 0.25em;
-    padding-left: 0.5em;
-    box-sizing: border-box;
-    box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.3);
-}
-
-.item-text {
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
-    font-size: 1.5em;
-
-    margin: 0;
-    padding: 0;
-}
-
-button {
-    outline: 0;
-    width: 5em;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 0.25em;
-    transition: box-shadow 0.3s, background-color 0.2s, color 0.2s;
-}
-button:hover {
-    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.6);
-}
-button:active {
-    background-color: rgb(16, 16, 22);
-    color: rgb(131, 130, 130);
-}
-
-.item-date {
-    color: gray;
-    font-size: 0.8em;
-    float: right;
-    margin: 0;
-    margin-top: 0.5em;
-}
-
-.todoItem {
-    grid-column-start: incomplete-start;
-    grid-column-end: incomplete-end;
-    background-color: rgb(26, 26, 36);
-    border: 0;
-}
-.completedItem {
-    grid-column-start: complete-start;
-    grid-column-end: complete-end;
-    background-color: darkgreen;
+    height: 70px;
+    border-radius: .5em;
+    border: 1px solid gray;
+    overflow: hidden;
+    transition: height .5s;
+    padding: .25em;
 }
