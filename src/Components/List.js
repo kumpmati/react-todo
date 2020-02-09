@@ -17,8 +17,7 @@ class List extends React.Component {
                         date={i.date}
                         text={i.text}
                         completed={i.completed}
-                        handleDelete={e => this.props.handleDelete(e)}
-                        handleStatus={e => this.props.handleStatus(e)}
+                        handleItem={(h, e) => this.props.handleItem(h, e)}
                     />
                 ))}
             </div>
